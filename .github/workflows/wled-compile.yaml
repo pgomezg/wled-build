@@ -31,7 +31,7 @@ jobs:
         npm install
         echo '[env:custom_build]' >>platformio.ini
         echo 'extends = env:nodemcuv2' >>platformio.ini
-        echo 'build_flags = ${env:nodemcuv2.build_flags} ${common.debug_flags} -D WLED_DISABLE_ESPNOW -D LOLIN_WIFI_FIX' >>platformio.ini
+        echo 'build_flags = ${env:nodemcuv2.build_flags} ${common.debug_flags} -D WLED_DISABLE_ESPNOW -D LOLIN_WIFI_FIX -D LEDPIN=2 -D BTNPIN=3 -D DEFAULT_LED_COUNT=63 -D WLED_AP_SSID='\''"WLED-AP-0"'\'' -D WLED_AP_PASS='\''"wled1234"'\''' >>platformio.ini
         
         echo 'build_unflags= -D WLED_RELEASE_NAME' >>platformio.ini
         pio run -e custom_build || pio run -e custom_build
